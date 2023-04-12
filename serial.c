@@ -9,8 +9,6 @@
 //  Using the MONOTONIC clock
 #define CLK CLOCK_MONOTONIC
 
-#define INTERVAL 10000
-
 /* Function to compute the difference between two points in time */
 struct timespec diff(struct timespec start, struct timespec end);
 
@@ -74,11 +72,13 @@ int main(int argc, char* argv[])
     srand(time(NULL));
     for(i=0;i<N;i++)
     {
-        randx = (double)(rand() % (INTERVAL + 1)) / INTERVAL;
-        randy = (double)(rand() % (INTERVAL + 1)) / INTERVAL;
+        // randx = (double)(rand() % (INTERVAL + 1)) / INTERVAL;
+        // randy = (double)(rand() % (INTERVAL + 1)) / INTERVAL;
+		randx = (double)rand() / RAND_MAX;
+		randy = (double)rand() / RAND_MAX;
         origin_dist = randx * randx + randy * randy;
         if(origin_dist <= 1)
-            circle_points++;
+            ++circle_points;
     }
 	pi = (double)(4 * circle_points) / N;
 	/*----------------------Core algorithm finished--------------------------------------------------*/
