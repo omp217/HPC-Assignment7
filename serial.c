@@ -64,7 +64,6 @@ int main(int argc, char* argv[])
 	/*----------------INPUT/OUPUT operations start here-----------------------------*/
     int i;
 	int circle_points = 0;
-    int square_points = 0;
     double randx, randy, origin_dist, pi;
 	/*----------------INPUT/OUPUT operations end here-----------------------------*/
 
@@ -80,12 +79,8 @@ int main(int argc, char* argv[])
         origin_dist = randx * randx + randy * randy;
         if(origin_dist <= 1)
             circle_points++;
-        square_points++;
-        pi = (double)(4 * circle_points) / square_points;
-        
-        // Print pi
-        printf("%f\n", pi);
     }
+	pi = (double)(4 * circle_points) / N;
 	/*----------------------Core algorithm finished--------------------------------------------------*/
 
 	clock_gettime(CLK, &end_alg);	/* End the algo timer */
